@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: point-data-updater
+
+script:
+  schemas: /org/springframework/batch/core/schema-h2.sql
+
+chunk:
+  write-size: 300
+  read-size: 1000

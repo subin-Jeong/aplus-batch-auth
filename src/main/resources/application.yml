@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: aplus-batch-template
+  datasource:
+    point-write:
+      url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/aplus_point?characterEncoding=UTF-8&serverTimezone=UTC
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
+      driver-class-name: org.mariadb.jdbc.Driver
+    point-read:
+      url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/aplus_point?characterEncoding=UTF-8&serverTimezone=UTC
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
+      driver-class-name: org.mariadb.jdbc.Driver
+  batch:
+    job:
+      enabled: true
+      name: ${JOB_NAME}
+
+script:
+  schemas: /org/springframework/batch/core/schema-h2.sql
+
+chunk:
+  read-size: 1000
+  write-size: 300
